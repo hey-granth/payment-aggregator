@@ -1,8 +1,7 @@
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
-from .config import settings
-from typing import AsyncGenerator
+from .config import settings  # NOQA
 
 
 engine = create_async_engine(

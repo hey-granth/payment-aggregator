@@ -37,9 +37,11 @@ class ProviderConfig(Base):
     is_primary: Mapped[bool] = mapped_column(
         Boolean, default=False
     )  # indicates if this is the primary provider for the project. when the payment comes to the project, this will decide which provider to use first. other providers can be used as fallback options.
-    created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.now)
-    updated_at: Mapped[datetime] = mapped_column(
-        DateTime, default=datetime.now, onupdate=datetime.now
-    )
+
+    # commented out the following fields coz doesn't seem needed for now
+    # created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.now)
+    # updated_at: Mapped[datetime] = mapped_column(
+    #     DateTime, default=datetime.now, onupdate=datetime.now
+    # )
 
     project = relationship("Project", back_populates="provider_configs")
