@@ -21,14 +21,3 @@ AsyncSessionLocal = sessionmaker(
 )
 
 Base = declarative_base()
-
-
-async def get_db() -> AsyncGenerator[AsyncSession, None]:
-    """
-    Dependency that provides a database session for a single request.
-    """
-    db = AsyncSessionLocal()
-    try:
-        yield db
-    finally:
-        await db.close()
